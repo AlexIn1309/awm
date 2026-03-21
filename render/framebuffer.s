@@ -95,11 +95,24 @@ clear_loop:
 
 fb_flush:
 
+    // mover cursor a inicio (0,0)
+    mov x0, #1             // STDOUT
+    ldr x1, =cursor_home   // "\033[H"
+    mov x2, #3             // longitud
+    mov x8, #SYS_WRITE
+    svc #0
+
+    // escribir framebuffer
     mov x0, #1             // STDOUT
     ldr x1, =framebuffer   // buffer
     mov x2, #FB_SIZE       // tamaño
-
     mov x8, #SYS_WRITE     // syscall write
     svc #0
 
     ret
+
+
+.section .data
+
+cursor_home:
+    .ascii "\033[H"

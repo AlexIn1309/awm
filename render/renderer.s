@@ -18,6 +18,12 @@
 
 renderer_frame:
 
+    // stack frame
+    stp x29, x30, [sp, #-16]!
+    mov x29, sp
+    stp x19, x20, [sp, #-16]!
+    stp x21, x22, [sp, #-16]!
+
     // limpiar framebuffer
     bl fb_clear
 
@@ -48,5 +54,10 @@ render_done:
 
     // enviar framebuffer a terminal
     bl fb_flush
+
+    // restaurar registros
+    ldp x21, x22, [sp], #16
+    ldp x19, x20, [sp], #16
+    ldp x29, x30, [sp], #16
 
     ret
