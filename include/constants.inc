@@ -1,6 +1,6 @@
-.equ FB_WIDTH, 98
-.equ FB_HEIGHT, 30
-.equ FB_SIZE, 2000
+.equ FB_WIDTH, 102
+.equ FB_HEIGHT, 32
+.equ FB_SIZE, 2940
 // ============================================================
 // Termios constants for raw mode
 // ============================================================

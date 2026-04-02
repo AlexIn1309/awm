@@ -1,4 +1,7 @@
 .include "constants.inc"
+.include "apps.inc"
 .include "syscalls.inc"
 .include "events.inc"
+.include "keys.inc"
 .include "window.inc"
+.include "app.inc"
